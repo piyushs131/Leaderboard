@@ -16,19 +16,24 @@ This is the Node.js/Express backend for the Gaming Leaderboard project. It uses 
 
 ---
 
-### 1. Clone and Install
 
-    ```bash
-    # From your terminal (Git Bash, WSL or other Bash shell)
-    git clone https://github.com/<your-username>/gaming-leaderboard.git
-    cd gaming-leaderboard/backend
-    npm install
+## 🧪 Backend Setup
 
----
+###  Prerequisites
 
- - ** Create a file named .env in the backend/ folder with these contents: **
+- Node.js v14+
+- PostgreSQL running locally
+- Redis running locally
 
-```bash
+###  Install and Setup
+
+
+-- cd backend
+-- npm install
+
+-- ** Create a file named .env in the backend/ folder with these contents: **
+
+
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
@@ -46,8 +51,21 @@ PORT=3001
 
 npm run create-tables
 
-- *** 4. Seed Sample Data***
+- *** Seed Sample Data***
 
 npm run populate-data
 
+# Start backend server
+node index.js
 
+
+📌 API Endpoints  
+Base URL: http://localhost:3000/api/leaderboard
+
+| Method | Endpoint         | Description                       |
+| ------ | ---------------- | --------------------------------- |
+| GET    | /top             | Fetch top 10 users by score      |
+| POST   | /submit          | Submit score `{ "user_id", score }` |
+| GET    | /rank/:user_id   | Get rank & total score of a user |
+
+---
