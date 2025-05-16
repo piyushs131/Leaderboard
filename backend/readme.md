@@ -8,32 +8,31 @@ This is the Node.js/Express backend for the Gaming Leaderboard project. It uses 
 
 - **Node.js** & **Express** – HTTP server and routing  
 - **PostgreSQL** – main database (users, scores, leaderboard)  
-- **Redis** – in-memory cache for top‑10 queries  
-- **dotenv** – environment variable management  
+- **Redis** – in‑memory cache for top‑10 queries  
+- **dotenv** – environment‑variable management  
 - **express‑rate‑limit** – rate limiting (5 submissions/minute)  
 - **pg** – PostgreSQL client  
 - **redis** – Redis client  
 
 ---
 
-
 ## 🧪 Backend Setup
 
-###  Prerequisites
+### Prerequisites
 
-- Node.js v14+
-- PostgreSQL running locally
-- Redis running locally
+- Node.js v14+  
+- PostgreSQL running locally  
+- Redis running locally  
 
-###  Install and Setup
+### Install and Setup
 
+```bash
+# 1. Install dependencies
+cd backend
+npm install
 
--- cd backend
--- npm install
-
--- ** Create a file named .env in the backend/ folder with these contents: **
-
-
+# 2. Create a .env file in the backend/ folder
+cat << 'EOF' > backend/.env
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
@@ -44,20 +43,19 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 
 PORT=3001
+EOF
 
----
- 
-- *** Create Database Tables ***
-
+# 3. Create database tables
 npm run create-tables
 
-- *** Seed Sample Data***
-
+# 4. Seed sample data
 npm run populate-data
 
-# Start backend server
+# 5. Start backend server
 node index.js
 
+
+```
 
 📌 API Endpoints  
 Base URL: http://localhost:3000/api/leaderboard
